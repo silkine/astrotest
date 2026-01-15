@@ -15,17 +15,25 @@ const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
 const happy = true;
 const finished = true;
 const goal = 3;
-const skillColor = 'blue';
+const skillColorLight = 'blue';
+const skillColorDark = 'white';
 const fontWeight = 'bold';
 const textCase = 'uppercase';
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-  <style define:vars={{ skillColor, fontWeight, textCase }}>
+  <style define:vars={{ skillColorLight, skillColorDark, fontWeight, textCase }}>
     .skill {
-      color: var(--skillColor);
+      /* pick a default at runtime */
+      --skillColorCurrent: var(--skillColorLight);
+
+      color: var(--skillColorCurrent);
       font-weight: var(--fontWeight);
       text-transform: var(--textCase);
+    }
+
+    :global(html.dark) .skill {
+      --skillColorCurrent: var(--skillColorDark);
     }
   </style>
   <h2>... and my new Astro site!</h2>
