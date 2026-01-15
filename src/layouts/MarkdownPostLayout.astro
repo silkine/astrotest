@@ -13,7 +13,8 @@ import BaseLayout from './BaseLayout.astro';
   />
 
   <p>Written by {frontmatter.author}</p>
-  <p>Published on {frontmatter.pubDate.toString().slice(0, 10)}</p>
+  <p>Published on {frontmatter.pubDate.toLocaleDateString()}</p>
+  <p><em>{frontmatter.description}</em></p>
   <slot />
   <div class="tags">
     {
