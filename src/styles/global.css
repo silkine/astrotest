@@ -69,6 +69,7 @@ h1 {
     position: static;
     width: auto;
     background: none;
+    display: flex;
   }
 
   .nav-links a {
